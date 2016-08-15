@@ -115,10 +115,11 @@ class GoogleAppsOAuthenticator(GoogleOAuthenticator):
 	def authenticate(self, handler):
 		username = yield GoogleOAuthenticator.authenticate(self, handler)
 
-		if not username or not username.endswith('@'+self.hosted_domain):
-			username = None
-		else:
-			username = username.split('@')[0]
+   ## for testing/debugging, release this requirement.  Let any gmail address work.             
+#		if not username or not username.endswith('@'+self.hosted_domain):
+#			username = None
+#		else:
+#			username = username.split('@')[0]
 
 		if self.whitelist and username not in self.whitelist:
 			username = None
