@@ -116,6 +116,7 @@ class GoogleAppsOAuthenticator(GoogleOAuthenticator):
 		username = yield GoogleOAuthenticator.authenticate(self, handler)
 
    ## for testing/debugging, release this requirement.  Let any gmail address work.             
+		username = username.split('@')[0]
 #		if not username or not username.endswith('@'+self.hosted_domain):
 #			username = None
 #		else:
